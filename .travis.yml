@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 8.9.1
+cache:
+  directories:
+  - node_modules
+fail_fast: true
+env:
+  global:
+  - NODE_ENV=travis
+before_install:
+- echo databaseUrl1=$databaseUrl
+stages:
+  - Compile test and deploy to staging
+jobs:
+  include:
+    - stage: Compile test and deploy to staging
+      script: echo $databaseUrl && npm start 
